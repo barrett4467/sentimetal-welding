@@ -1,8 +1,12 @@
 import React from "react";
+import Navbar from "../elements/Navbar";
 
 const Previous = () => {
     return (
-        <h1>Previous</h1>
+        <>
+        <Navbar />
+            <h1>Previous</h1>
+        </>
     )
 }
 

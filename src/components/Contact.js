@@ -1,8 +1,14 @@
 import React from "react";
+import Navbar from "../elements/Navbar";
+import ContactForm from "../elements/ContactForm";
 
 const Contact = () => {
     return (
-        <h1>Contact</h1>
+        <>
+            <Navbar />
+            <h1>Contact</h1>
+            <ContactForm />
+        </>
     )
 }
 

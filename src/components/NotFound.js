@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../elements/Navbar";
 
-const Home = () => {
+const NotFoundPage = () => {
     return (
         <>
             <Navbar />
-            <h1>Home</h1>
+            <h1>Page Not Found</h1>
         </>
     )
 }
 
-export default Home;
+export default NotFoundPage;
