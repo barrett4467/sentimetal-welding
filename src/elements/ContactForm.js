@@ -1,44 +1,17 @@
-import React, { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
-const ContactForm = () => {
-    const [status, setStatus] = useState("Submit");
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setStatus("Sending...");
-        const { name, email, message } = e.target.elements;
-        let details = {
-            name: name.value,
-            email: email.value,
-            message: message.value,
-        };
-        let response = await fetch("http://localhost:3000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify(details),
-        });
-        setStatus("Submit");
-        let result = await response.json();
-        alert(result.status);
-    };
+export default function ContactForm() {
+    const [state, handleSubmit] = useForm('mjvzpnky');
+
+    if (state.succeeded) {
+        return <p>Thank you for your email!</p>;
+    }
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="name">Name: </label>
-                <input type="text" id="name" required/>
-            </div>
-            <div>
-                <label htmlFor="email">Email: </label>
-                <input type="text" id="email" required/>
-            </div>
-            <div>
-                <label htmlFor="name">Message: </label>
-                <input type="text" id="message" required/>
-            </div>
-            <button type="submit">{status}</button>
+        <form method="POST" onSubmit={handleSubmit}>
+        <label htmlFor="name">Full Name</label>
+        <input id="name" type="text" name="name" required />
+        <button type="submit" disabled={state.submitting}>Submit</button>
+        <ValidationError errors={state.errors}/>
         </form>
-    )
-}
-
-export default ContactForm;
+    );
+};
