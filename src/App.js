@@ -9,7 +9,7 @@ import Contact from "./components/Contact";
 import NotFoundPage from "./components/NotFound";
 
 
-const API_PATH = 
+// const API_PATH = 
 const App = () => {
   useEffect(() => {
     document.title = "Sentimetal"
