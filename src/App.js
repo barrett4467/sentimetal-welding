@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
+
 import Home from "./components/Home";
 import Services from "./components/Services";
 import Previous from "./components/Previous";
@@ -7,7 +9,7 @@ import Contact from "./components/Contact";
 import NotFoundPage from "./components/NotFound";
 
 
-
+const API_PATH = 
 const App = () => {
   useEffect(() => {
     document.title = "Sentimetal"
