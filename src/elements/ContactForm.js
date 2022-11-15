@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { Component } from "react";
+
 
 class ContactForm extends Component {
     constructor(props){
@@ -21,6 +23,26 @@ class ContactForm extends Component {
     handleFormSubmit( event ) {
         alert("Thank you for your message, " + this.state.fname + " ! We'll be in touch shortly.");
         event.preventDefault();
+        const form = document.querySelector("form");
+
+        if(form) {
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                axios
+                    .post("/update-form", formData, {
+                        headers: {
+                            "Content-Type": "multipart/form-data",
+                        },
+                    })
+                    .then((res) => {
+                        console.log(res);
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            });
+        }
     }
     render (){
         return (

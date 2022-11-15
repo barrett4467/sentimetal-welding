@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../elements/Navbar";
-import ContactForm from "../elements/ContactForm";
+import ContactFormspree from "../elements/ContactFormspree";
 
 const Contact = () => {
     return (
         <>
             <Navbar />
             <h1>Contact</h1>
-            <ContactForm />
+            <ContactFormspree />
         </>
     )
 }
