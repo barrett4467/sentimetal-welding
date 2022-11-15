@@ -22,19 +22,26 @@ const DropDownContent = styled.div`
     min-width: 160px;
     z-index: 1;
 `
-const StyledLink = styled(Link)`
+const StyledUl = styled.ul`
+    display: flex;
+    list-style-type: none;
+    
+`
+const StyledLi = styled.li`
     position: relative;
     top: 10px;
+    margin: 0 auto;
+    &:hover ${DropDownContent} {
+        display: block;
+    }
+`
+const StyledLink = styled(Link)`
     text-decoration: none;
     color: #3b0512;
     font-size: 1.5em;
     letter-spacing: 2px;
-    margin: 0 auto;
     &:hover {
         color: #dfac7a;
-    }
-    &:hover ${DropDownContent} {
-        display: block;
     }
 `
 const Menu = styled.div`
@@ -51,10 +58,20 @@ function Navbar() {
         <Nav>
             <div>Logo</div>
             <Menu>
-                <StyledLink to="/">Home</StyledLink>
-                <StyledLink to="/services">Services</StyledLink>
-                <StyledLink to="/previous-work">Previous Work</StyledLink>
-                <StyledLink to="/contact">Contact Us</StyledLink>
+                <StyledUl>
+                    <StyledLi>
+                        <StyledLink to="/">Home</StyledLink>
+                    </StyledLi>
+                    <StyledLi>
+                        <StyledLink to="/services">Services</StyledLink>
+                    </StyledLi>
+                    <StyledLi>
+                    <StyledLink to="/previous-work">Previous Work</StyledLink>
+                    </StyledLi>
+                    <StyledLi>
+                        <StyledLink to="/contact">Contact Us</StyledLink>
+                    </StyledLi>
+                </StyledUl>
             </Menu>
         </Nav>
         </>
