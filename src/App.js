@@ -3,10 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 import Home from "./components/Home";
-import Services from "./components/Services";
+import Welding from "./components/Welding";
 import Previous from "./components/Previous";
 import Contact from "./components/Contact";
 import NotFoundPage from "./components/NotFound";
+import Fabrication from "./components/Fabrication";
+import Panelling from "./components/MetalPaneling";
+
 
 
 
@@ -18,7 +21,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/services" element={<Services/>} />
+        <Route path="/services-welding" element={<Welding/>} />
+        <Route path="/services-fabrication" element={<Fabrication/>} />
+        <Route path="/services-metal-panelling" element={<Panelling/>} />
         <Route path="/previous-work" element={<Previous/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="*" element={<NotFoundPage/>}/>

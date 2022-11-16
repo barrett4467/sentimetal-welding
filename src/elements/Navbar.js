@@ -53,7 +53,7 @@ const DropDownLi = styled(StyledLi)`
     }
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
     display: inline-block;
     text-align: center;
     text-decoration: none;
@@ -67,6 +67,7 @@ const StyledLink = styled(Link)`
         }
 `
 const SubLink = styled(StyledLink)`
+    
     color: black;
     text-decoration: none;
     display: block;
@@ -84,41 +85,37 @@ const Menu = styled.div`
 
 
 class Navbar extends Component {
-    handleClick = action => {
-        if (!action) return;
-
-        if (this.props.onClick) this.props.onClick(action);
-    }
-    render = () => {
+    render () {
         return (
-            <>
+        <>
         <GlobalStyle />
         <Nav>
             <div>Logo</div>
             <Menu>
             <StyledUl>
                 <StyledLi>
-                <StyledLink to="/">Home</StyledLink>
+                <StyledLink href="/">Home</StyledLink>
                 </StyledLi>
                 <DropDownLi>
-                <DropBtn onClick={() => this.handleClick("DropDown")}>Services</DropBtn>
+                <DropBtn onClick={() => this.handleClick("DropDown")}>Services
+                </DropBtn>
                 <DropDownContent>
                 {" "}
-                <SubLink onClick={() => this.handleClick("Link1")}>Welding</SubLink>
-                <SubLink onClick={() => this.handleClick("Link2")}>Custom Fabrication</SubLink>
-                <SubLink onClick={() => this.handleClick("Link3")}>Metal Panelling</SubLink>
+                <SubLink href="/services-welding">Welding</SubLink>
+                <SubLink href="/services-fabrication">Custom Fabrication</SubLink>
+                <SubLink href="/services-metal-panelling">Metal Panelling</SubLink>
                 </DropDownContent>
                 </DropDownLi>
                 <StyledLi>
-                <StyledLink to="/previous-work">Previous Work</StyledLink>
+                <StyledLink href="/previous-work">Previous Work</StyledLink>
                 </StyledLi>
                 <StyledLi>
-                    <StyledLink to="/contact">Contact Us</StyledLink>
+                    <StyledLink href="/contact">Contact Us</StyledLink>
                 </StyledLi>
             </StyledUl>
             </Menu>
-            </Nav>
-            </>
+        </Nav>
+        </>
         )
     }
 }
