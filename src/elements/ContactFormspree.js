@@ -17,7 +17,11 @@ export default function ContactForm() {
         <input id="email" type="email" name="email" required />
         <ValidationError prefix="Email" field="email" errors={state.errors} />
   
-        <label htmlFor="message">Message</label>
+        <label htmlFor="email">Phone Number</label>
+        <input id="phone" type="text" pattern="[0-9]*" minLength="10" maxLength= "10" name="phone" required />
+        <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+
+        <label htmlFor="message">How can we help?</label>
         <textarea id="message" name="message" required></textarea>
         <ValidationError prefix="Message" field="message" errors={state.errors} />
   

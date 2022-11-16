@@ -21,9 +21,7 @@ const DropBtn = styled.div`
     display: inline-block;
     text-align: center;
     text-decoration: none;
-    padding: 26px 16px;
     color: #3b0512;
-    font-size: 1.5em;
     letter-spacing: 2px;
 `
 const DropDownContent = styled.div`
@@ -97,7 +95,7 @@ class Navbar extends Component {
                 <StyledLink href="/">Home</StyledLink>
                 </StyledLi>
                 <DropDownLi>
-                <DropBtn onClick={() => this.handleClick("DropDown")}>Services
+                <DropBtn onClick={() => this.handleClick("/DropDown")}><StyledLink href="/services">Services</StyledLink>
                 </DropBtn>
                 <DropDownContent>
                 {" "}
