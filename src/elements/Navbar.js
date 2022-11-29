@@ -8,6 +8,13 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-image: url(${props => props.theme.backgroundImage});
+    background-size: cover;
+    letter-spacing: 0.5px;
+    color: ${props => props.theme.mainColor};
+}
+h1, h2, h3, h4{
+    color: ${props => props.theme.accentColor};
 }
 `
 const Nav = styled.div`
@@ -57,9 +64,9 @@ const StyledLink = styled.a`
     text-decoration: none;
     margin: 0 auto;
     padding: 1em;
-    color: #3b0512;
     font-size: 1.5em;
     letter-spacing: 2px;
+    color: ${props => props.theme.accentColor};
     &:hover {
         color: #dfac7a;
         }
