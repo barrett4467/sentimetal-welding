@@ -5,16 +5,18 @@ import styled from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
     background-image: url(${props => props.theme.backgroundImage});
     background-size: cover;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     color: ${props => props.theme.mainColor};
+    margin: 2%;
 }
 h1, h2, h3, h4{
     color: ${props => props.theme.accentColor};
+    text-transform: uppercase;
 }
 `
 const Nav = styled.div`
@@ -34,7 +36,7 @@ const DropBtn = styled.div`
 const DropDownContent = styled.div`
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: black;
     min-width: 160px;
     border-radius: 10px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -78,7 +80,7 @@ const SubLink = styled(StyledLink)`
     display: block;
     text-align:left;
     &:hover {
-        background-color: #dfac7a;
+        background-color: ${props => props.theme.accentColor};
         color: black;
     }
 `
@@ -95,11 +97,11 @@ class Navbar extends Component {
         <>
         <GlobalStyle />
         <Nav>
-            <div>Logo</div>
+            <div><StyledLink href="/">Logo</StyledLink></div>
             <Menu>
             <StyledUl>
                 <StyledLi>
-                <StyledLink href="/">Home</StyledLink>
+                <StyledLink href="/about">Home</StyledLink>
                 </StyledLi>
                 <DropDownLi>
                 <DropBtn onClick={() => this.handleClick("/DropDown")}><StyledLink href="/services">Services</StyledLink>

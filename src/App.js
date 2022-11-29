@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 import Home from "./components/Home";
+import About from "./components/About";
 import Welding from "./components/Welding";
 import Previous from "./components/Previous";
 import Contact from "./components/Contact";
@@ -28,6 +29,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<About />}/>
           <Route path="/services" element={<Services/>} />
           <Route path="/services-welding" element={<Welding/>} />
           <Route path="/services-fabrication" element={<Fabrication/>} />
