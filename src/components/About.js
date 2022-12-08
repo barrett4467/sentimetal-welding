@@ -11,6 +11,7 @@ const Header = styled.h1`
 const Home = () => {
     return (
         <>
+            
             <Navbar />
             <Header>Sentimetal LLC</Header>
             <p>

@@ -2,28 +2,16 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import {createGlobalStyle} from "styled-components";
 import styled from "styled-components";
+import breakpoints from "./breakpoints";
 
-const GlobalStyle = createGlobalStyle`
-body {
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-    background-image: url(${props => props.theme.backgroundImage});
-    background-size: cover;
-    letter-spacing: 1px;
-    color: ${props => props.theme.mainColor};
-    margin: 2%;
-}
-h1, h2, h3, h4{
-    color: ${props => props.theme.accentColor};
-    text-transform: uppercase;
-}
-`
+
 const Nav = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
+    @media only screen and ${breakpoints.device.sm}{
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
 `
 
 const DropBtn = styled.div`
@@ -61,21 +49,27 @@ const DropDownLi = styled(StyledLi)`
 `
 
 const StyledLink = styled.a`
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    margin: 0 auto;
-    padding: 1em;
-    font-size: 1.5em;
-    letter-spacing: 2px;
-    color: ${props => props.theme.accentColor};
-    &:hover {
-        color: #dfac7a;
+
+    @media only screen and ${breakpoints.device.xs}{
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        margin: 0 auto;
+        padding: 1em;
+        font-size: 1.5em;
+        letter-spacing: 2px;
+        color: ${props => props.theme.accentColor};
+        &:hover {
+            color: #dfac7a;
         }
+    }
+    @media only screen and ${breakpoints.device.lg}{
+        font-size: 2em;
+    }
+
 `
 const SubLink = styled(StyledLink)`
-    
-    color: black;
+    color: ${props => props.theme.mainColor};
     text-decoration: none;
     display: block;
     text-align:left;
@@ -84,43 +78,39 @@ const SubLink = styled(StyledLink)`
         color: black;
     }
 `
-const Menu = styled.div`
-    display: flex;
-    gap: 1em;
-    font-size: 18px;
-`
-
+const handleOnClick = () =>{
+    setTimeout(() => {
+        console.log("waiting for 1 sec");
+    }, "1000")
+}
 
 class Navbar extends Component {
     render () {
         return (
         <>
-        <GlobalStyle />
         <Nav>
-            <div><StyledLink href="/">Logo</StyledLink></div>
-            <Menu>
             <StyledUl>
+            <StyledLink onClick={handleOnClick} href="/">Logo</StyledLink>
                 <StyledLi>
-                <StyledLink href="/about">Home</StyledLink>
+                <StyledLink onClick={handleOnClick} href="/about">Home</StyledLink>
                 </StyledLi>
                 <DropDownLi>
                 <DropBtn onClick={() => this.handleClick("/DropDown")}><StyledLink href="/services">Services</StyledLink>
                 </DropBtn>
                 <DropDownContent>
                 {" "}
-                <SubLink href="/services-welding">Welding</SubLink>
-                <SubLink href="/services-fabrication">Custom Fabrication</SubLink>
-                <SubLink href="/services-metal-panelling">Metal Panelling</SubLink>
+                <SubLink onClick={handleOnClick} href="/services-welding">Welding</SubLink>
+                <SubLink onClick={handleOnClick} href="/services-fabrication">Custom Fabrication</SubLink>
+                <SubLink onClick={handleOnClick} href="/services-metal-panelling">Metal Panelling</SubLink>
                 </DropDownContent>
                 </DropDownLi>
                 <StyledLi>
-                <StyledLink href="/previous-work">Previous Work</StyledLink>
+                <StyledLink onClick={handleOnClick}  href="/previous-work">Previous Work</StyledLink>
                 </StyledLi>
                 <StyledLi>
-                    <StyledLink href="/contact">Contact Us</StyledLink>
+                    <StyledLink onClick={handleOnClick} href="/contact">Contact Us</StyledLink>
                 </StyledLi>
             </StyledUl>
-            </Menu>
         </Nav>
         </>
         )
